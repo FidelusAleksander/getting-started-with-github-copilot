@@ -23,9 +23,7 @@ In this exercise, you will:
 
 1. Right-click **Copy Exercise** and open the link in a new tab.
 
-   <a id="copy-exercise" href="https://github.com/new?template_owner=skills&template_name=getting-started-with-github-copilot&owner=%40me&name=skills-getting-started-with-github-copilot&description=Exercise:+Get+started+using+GitHub+Copilot&visibility=public">
-      <img src="https://img.shields.io/badge/📠_Copy_Exercise-008000" height="25pt"/>
-   </a>
+   [![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-brightgreen?style=for-the-badge&logo=github)](https://github.com/new?template_owner=skills&template_name=getting-started-with-github-copilot&owner=%40me&name=skills-getting-started-with-github-copilot&description=Exercise:+Get+started+using+GitHub+Copilot&visibility=public)
 
 2. In the new tab, most of the fields will automatically fill in for you.
 
@@ -33,7 +31,7 @@ In this exercise, you will:
    - We recommend creating a public repository, as private repositories will use [Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
    - Scroll down and click the **Create repository** button at the bottom of the form.
 
-3. Refresh your repository in about 10-20 seconds to see how to proceed as the README will get updated. The automation is already working to prepare the exercise. 
+3. Refresh your repository in about 10-20 seconds to see how to proceed as the README will get updated. The automation is already working to prepare the exercise.
 
 
 ---
