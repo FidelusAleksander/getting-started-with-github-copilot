@@ -80,24 +80,17 @@ jobs:
 
       - name: Build message - step results
         id: build-message-step-results
-        uses: skills/action-text-variables@v1
+        uses: skills/action-text-variables@use-yaml-variables
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
-          template-vars: >
-            {
-              "step_number": 3,
-              "passed": ${{ !contains(steps.*.outcome, 'failure') }},
-              "results_table": [
-                {
-                  "name": "Check app.js for participant info",
-                  "passed": ${{ steps.check-app-js.outcome == 'success' }}
-                },
-                {
-                  "name": "Participant styling updated in styles.css",
-                  "passed": ${{ steps.check-styles.outcome == 'success' }}
-                }
-              ]
-            }
+          template-vars: |
+            step_number: 3
+            passed: ${{ !contains(steps.*.outcome, 'failure') }}
+            results_table:
+              - name: "Check app.js for participant info"
+                passed: ${{ steps.check-app-js.outcome == 'success' }}
+              - name: "Participant styling updated in styles.css"
+                passed: ${{ steps.check-styles.outcome == 'success' }}
 
       - name: Create comment - step results
         run: |
