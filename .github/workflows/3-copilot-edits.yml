@@ -49,27 +49,21 @@ jobs:
       - name: Check for participant info in app.js
         id: check-app-js
         continue-on-error: true
-        run: |
-          file="src/static/app.js"
-          keyphrase='participant'
-          minimum_occurences=3
-          found_occurences=$(grep -o "$keyphrase" "$file" | wc -l)
-          if [ "$found_occurences" -lt "$minimum_occurences" ]; then
-            exit 1
-          fi
+        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances
+        with:
+          text-file: src/static/app.js
+          keyphrase: participant
+          minimum_occurences: 3
+          case-sensitive: false
 
       - name: Check for participant info in styles.css
         id: check-styles
         continue-on-error: true
-        run: |
-          file="src/static/styles.css"
-          keyphrase='participant'
-          minimum_occurences=1
-
-          found_occurences=$(grep -o "$keyphrase" "$file" | wc -l)
-          if [ "$found_occurences" -lt "$minimum_occurences" ]; then
-            exit 1
-          fi
+        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances
+        with:
+          text-file: src/static/styles.css
+          keyphrase: participant
+          case-sensitive: false
 
       - name: Build message - step results
         id: build-message-step-results
