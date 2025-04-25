@@ -36,7 +36,7 @@ jobs:
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
-          ref: step-results-table
+          ref: main # TODO: Change later
 
       - name: Update comment - checking work
         run: |
@@ -49,17 +49,17 @@ jobs:
       - name: Check for participant info in app.js
         id: check-app-js
         continue-on-error: true
-        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances
+        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances # TODO: Change later
         with:
           text-file: src/static/app.js
           keyphrase: participant
-          minimum_occurences: 3
+          minimum-occurences: 3
           case-sensitive: false
 
       - name: Check for participant info in styles.css
         id: check-styles
         continue-on-error: true
-        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances
+        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances # TODO: Change later
         with:
           text-file: src/static/styles.css
           keyphrase: participant
@@ -74,9 +74,9 @@ jobs:
             step_number: 3
             passed: ${{ !contains(steps.*.outcome, 'failure') }}
             results_table:
-              - name: "Check app.js for participant info"
+              - description: "Check app.js for participant info"
                 passed: ${{ steps.check-app-js.outcome == 'success' }}
-              - name: "Participant styling updated in styles.css"
+              - description: "Participant styling updated in styles.css"
                 passed: ${{ steps.check-styles.outcome == 'success' }}
 
       - name: Create comment - step results
@@ -124,6 +124,7 @@ jobs:
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
+          ref: main # TODO: Change later
 
       - name: Create comment - add step content
         run: |
