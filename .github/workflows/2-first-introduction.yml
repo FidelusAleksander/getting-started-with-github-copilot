@@ -51,11 +51,11 @@ jobs:
       - name: Check for additional student activities
         id: check-additional-activities
         continue-on-error: true
-        uses: skills/exercise-toolkit/actions/keyphrase-checker@minimum-occurances # TODO: Change later
+        uses: skills/action-keyphrase-checker@main # TODO: Change later
         with:
           text-file: src/app.py
-          keyphrase: description
-          minimum-occurences: 4
+          keyphrase: '"description"'
+          minimum-occurrences: 3
           case-sensitive: false
 
       - name: Build message - step results
@@ -67,7 +67,7 @@ jobs:
             step_number: 2
             passed: ${{ !contains(steps.*.outcome, 'failure') }}
             results_table:
-              - description: "New activities added to src/app.py. There are ${{ steps.check-additional-activities.outputs.occurences }} activities, with a minimum of 4 required."
+              - description: "New activities added to src/app.py. We found ${{ steps.check-additional-activities.outputs.occurrences }} activities (minimum 4 required)"
                 passed: ${{ steps.check-additional-activities.outcome == 'success' }}
 
       - name: Create comment - step results
@@ -94,8 +94,7 @@ jobs:
       - name: Update comment - step finished
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "$ISSUE_BODY" \
-            --edit-last
+            --body "$ISSUE_BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_BODY: ${{ steps.build-message-step-finish.outputs.updated-text }}
@@ -114,8 +113,9 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: skills/response-templates
-          path: skills-response-templates
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: main # TODO: Change later
 
       - name: Create comment - add step content
         run: |
@@ -127,7 +127,7 @@ jobs:
       - name: Create comment - watching for progress
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body-file skills-response-templates/step-feedback/watching-for-progress.md
+            --body-file exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

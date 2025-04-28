@@ -34,11 +34,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: skills/response-templates
-          path: skills-response-templates
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: main # TODO: Change later
 
       # START: Check practical exercise
 
@@ -102,7 +104,7 @@ jobs:
         id: build-message-step-results
         uses: skills/action-text-variables@v1
         with:
-          template-file: skills-response-templates/step-feedback/step-results.md
+          template-file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
           template-vars: '{
             "step_number": 4,
             "passed": ${{ steps.check-user-work.outputs.passed }},
