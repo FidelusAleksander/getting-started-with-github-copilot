@@ -1,0 +1,117 @@
+name: Step Transition
+
+# This workflow will replace post_next_step_content and post_review_content invocations. 
+# It will be called by the step workflows directly with parameters
+# It should do the same as the previous workflows.
+
+
+on:
+  workflow_call:
+    inputs:
+      current_step_number:
+        required: true
+        type: number
+        description: "Current step number"
+      next_step_number:
+        required: false
+        type: number
+        description: "Next step number (omit for final step)"
+      is_final_step:
+        required: false
+        type: boolean
+        default: false
+        description: "Whether this is the final step"
+      issue_number:
+        required: true
+        type: string
+        description: "Issue number for the exercise"
+      issue_repository:
+        required: true
+        type: string
+        description: "Repository containing the issue"
+      content_file:
+        required: true
+        type: string
+        description: "Path to content file (step or review)"
+      content_vars:
+        required: false
+        type: string
+        description: "YAML variables for content file"
+
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+jobs:
+  transition:
+    name: Step Transition
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_REPOSITORY: ${{ inputs.issue_repository }}
+      ISSUE_NUMBER: ${{ inputs.issue_number }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get response templates
+        uses: actions/checkout@v4
+        with:
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: v0.7.0
+
+      - name: Create comment - step finished
+        if: ${{ inputs.current_step_number >= 1 && !inputs.is_final_step }}
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
+          vars: |
+            next_step_number: ${{ inputs.next_step_number }}
+
+      - name: Create comment - final review next
+        if: ${{ inputs.is_final_step }}
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: exercise-toolkit/markdown-templates/step-feedback/lesson-review.md
+
+      - name: Create content comment
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: ${{ inputs.content_file }}
+          vars: ${{ inputs.content_vars }}
+
+      - name: Create comment - watching for progress
+        if: ${{ !inputs.is_final_step }}
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
+
+      - name: Get active step workflow
+        id: step-info
+        uses: skills/exercise-toolkit/actions/active-step-workflow@get-current-step-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Disable current step workflow
+        run: |
+          gh workflow disable "${{ steps.step-info.outputs.workflow-name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable next step workflow
+        if: ${{ !inputs.is_final_step }}
+        run: |
+          gh workflow enable "Step ${{ inputs.next_step_number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
