@@ -8,10 +8,10 @@ Due to network restrictions in the automated environment, the actual image files
 
 ## How to Populate Images
 
-Run the provided script from the repository root:
+Run the provided script from any directory:
 
 ```bash
-# From the repository root directory
+# Can be run from anywhere
 bash .github/download-images.sh
 ```
 
