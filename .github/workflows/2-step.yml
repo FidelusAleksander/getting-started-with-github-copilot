@@ -13,6 +13,9 @@ permissions:
 
 env:
   STEP_3_FILE: ".github/steps/3-copilot-edits.md"
+  # TODO: Update file name later 
+  # STEP_3_FILE: ".github/steps/3-copilot-agent-mode.md"
+
 
 jobs:
   find_exercise:
