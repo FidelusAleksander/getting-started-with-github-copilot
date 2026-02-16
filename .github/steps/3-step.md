@@ -1,4 +1,4 @@
-## Step 4: Engage Hyperdrive - Copilot Agent Mode 🚀
+## Step 3: Engage Hyperdrive - Copilot Agent Mode 🚀
 
 ### 📖 Theory: What is Copilot Agent Mode?
 
@@ -6,15 +6,14 @@ Copilot [agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-
 
 Copilot Agent Mode responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed.
 
-#### Edit Mode vs Agent Mode (at a glance)
+#### Agent Mode (at a glance)
 
-| Aspect         | ✏️ Edit Mode                      | 👩‍🚀 Agent Mode                                                                    |
-| -------------- | --------------------------------- | -------------------------------------------------------------------------------- |
-| Context scope  | Only the files you explicitly add | May read/add additional files & surfaces as needed                               |
-| Self‑review    | Minimal (you drive iteration)     | Built‑in feedback & retry loop on errors/failures                                |
-| Change scope   | Highly scoped & surgical          | Broader; may touch related layers for consistency                                |
-| When to choose | You know exactly what to change   | Goal is broader or uncertain; requires exploration                               |
-| Tool calling   | None (you run commands manually)  | Can invoke tools (read/edit files, run commands, inspect terminal & test output) |
+| Aspect | 👩‍🚀 Agent Mode |
+| --- | --- |
+| Autonomy and planning | Breaks down high-level requests into multi-step work and iterates until the task is complete. |
+| Context gathering | Uses your current context and can discover additional relevant files when needed. |
+| Tool use | Selects and invokes tools automatically; you can also direct tools with mentions like `#codebase`. |
+| Approval and safety gates | Sensitive actions can require approval before execution, helping you stay in control. |
 
 #### 🧰 Agent Mode Tools
 
@@ -44,7 +43,6 @@ If you don't get the desired results, you can try other models or provided follo
 1. Click on the **Tools** icon and explore all Tools currently available to Copilot Agent Mode.
 
    <img width="250"  alt="tools icon" src="../images/tools-icon.png" />
-
 
 1. Time for our test! Let's ask Copilot to add functionality for removing participants.
 
