@@ -1,4 +1,4 @@
-## Step 4: Engage Hyperdrive - Copilot Agent Mode 🚀
+## Step 3: Engage Hyperdrive - Copilot Agent Mode 🚀
 
 ### 📖 Theory: What is Copilot Agent Mode?
 
