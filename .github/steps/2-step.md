@@ -34,9 +34,11 @@ In short, you can think of Copilot like a very specialized coworker. To be effec
    > ```
 
 1. Now that we know the issue is in the `src/app.py` file and the `signup_for_activity` method, let's follow Copilot's recommendation and go fix it (semi-manually). We'll start with a comment and let Copilot finish the correction.
-   1. In VS Code, select the file **Explorer tab** to show the project files and open the `src/app.py` file.
+   1. Open the `src/app.py` file.
 
-   1. Scroll near the bottom of the file and find the `signup_for_activity` method.
+      > 💡 **Tip:** If Copilot mentioned `src/app.py` in chat, you can click the file directly in the chat view to open it.
+
+   1. Near the bottom of the file, find the `signup_for_activity` function.
 
    1. Find the comment line that describes adding a student. Above this is where it seems logical to do our registration check.
 
