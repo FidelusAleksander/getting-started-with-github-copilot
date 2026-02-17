@@ -135,4 +135,3 @@ If you don't get the desired results, you can try other models or provided follo
 1. When Copilot is finished, inspect the results and validate the registration flow on the website.
 
    If you like the results, press the **Keep** button. If not, try providing Copilot some feedback.
-
