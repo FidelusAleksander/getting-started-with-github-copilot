@@ -43,6 +43,11 @@ Your backend still has zero test coverage. Use **Plan Mode** to create a plan, a
 
 1. Review the proposed plan and when you are happy with it, click **Start implementation** to hand off to **Agent Mode**.
 
+   <img width="350" alt="image" src="../images/plan-mode-start-implementation.png" />
+
+   Notice that clicking the button switched from **Plan Mode** to **Agent Mode**. From this point on, Copilot can edit your codebase, just like before.
+
+1. Watch Copilot implement the plan you just created. It may ask for permissions to run certain tools (e.g run commands or create virtual environments). Approve these permissions so it can continue working.
 
 1. Review the changes and make sure tests run successfully. If needed, continue guiding until implementation is complete.
 
