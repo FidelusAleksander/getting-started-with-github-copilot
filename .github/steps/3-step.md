@@ -36,7 +36,7 @@ Our website lists activities, but it's keeping the guest list secret 🤫
 
 Let's use Copilot to change the website to display signed up students under each activity!
 
-1. At the bottom of Copilot Chat window, use the dropdown to switch to **Edit** mode.
+1. At the bottom of Copilot Chat window, use the dropdown to switch to **Agent** mode.
 
    <img width="350" alt="image" src="../images/edit-mode-dropdown.png" />
 
@@ -69,7 +69,9 @@ Let's use Copilot to change the website to display signed up students under each
       <img width="900" alt="buttons to keep or discard changes" src="../images/review-changes-buttons.png" />
 
 
-1. Before we simply accept the changes, please check our website again and verify everything is updated as expected. Here is an example of an updated activity card. You may need to restart the app or refresh the page.
+1. Before we simply accept the changes, please check our website again and verify everything is updated as expected. 
+   
+   Here is an example of an updated activity card. You may need to restart the app or refresh the page.
 
    <img width="350" alt="Activity card with participant info" src="../images/activity-card-with-participants.png" />
 
@@ -95,7 +97,7 @@ Let's experiment with some more open-ended requests that will add more functiona
 
 If you don't get the desired results, you can try other models or provided followup feedback to refine the results.
 
-1. Open the **Copilot** chat panel and use the dropdown menu to switch to **Agent** mode.
+1. Make sure your Copilot is still in **Agent** mode.
 
    <img width="250" alt="agent mode" src="../images/agent-mode-dropdown.png" />
 
@@ -121,6 +123,8 @@ If you don't get the desired results, you can try other models or provided follo
 
 1. Ask Copilot to fix a registration bug.
 
+   > 💡 **Tip:** We recommend testing the registration flow yourself so you can clearly see the before/after changes behavior.
+
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
@@ -128,25 +132,7 @@ If you don't get the desired results, you can try other models or provided follo
    > When a participant is registered, the page must be refreshed to see the change on the activity.
    > ```
 
-1. When Copilot is finished, inspect the results. If you like the results, press the **Keep** button. If not, try providing Copilot some feedback.
+1. When Copilot is finished, inspect the results and validate the registration flow on the website.
 
-### :keyboard: Activity: Use Agent mode to get test coverage 🧑‍🚀
+   If you like the results, press the **Keep** button. If not, try providing Copilot some feedback.
 
-Your backend is now feature‑rich—but still has zero test coverage. Use Copilot **Agent Mode** to add test dependencies, scaffold starter tests and run them.
-
-1. Ask Copilot in **Agent mode** to set up and run tests for your backend.
-
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-placeholder?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Add fastapi tests using pytest in a new tests directory and run them.
-   > Make sure to add any new dependencies to requirements.txt
-   > ```
-
-1. As Copilot works on your prompt, different tools might need your approval.
-
-   **🎯 Goal: Get all tests passing (green) — aim for a clean run! ✅**
-
-   > 🪧 **Note:** Copilot may one-shot this with the initial prompt or need more guidance from you.
-
-1. Once the tests are passing - **commit** and **push** all changes to your `accelerate-with-copilot` branch to progress to the last step! Almost done!
