@@ -1,8 +1,24 @@
-## Step 4: Plan Mode for Better Tests 🧭
+## Step 4: Plan your implementation with the Planning Agent 🧭
 
 ### 📖 Theory: What is Copilot Plan Mode?
 
-Plan Mode helps you draft a structured plan and gather missing context before any code changes happen. Copilot will ask clarifying questions and refine the plan with your input. When you are ready, you can click **Start implementation** to hand off to Agent Mode.
+Copilot [Plan Mode](https://code.visualstudio.com/docs/copilot/chat/chat-planning) helps you design a solution before any code is changed.
+
+Instead of jumping straight into edits, it researches your request, asks clarifying questions, and drafts an implementation plan you can refine.
+
+#### Plan Mode (at a glance)
+
+| Aspect | 🧭 Plan Mode |
+| --- | --- |
+| Purpose | Creates a structured implementation plan before coding starts. |
+| Context gathering | Uses read-only research to understand requirements and constraints. |
+| Collaboration style | Asks clarifying questions, then updates the plan using your answers. |
+| Iteration | Supports multiple refinement passes before implementation. |
+| Safety | Does not edit files until you approve the plan and hand off to **Agent Mode**. |
+| Handoff | **Start implementation** button hands off the approved plan to **Agent Mode** for coding. |
+
+> [!TIP]
+> You can start from a high-level request and then add constraints and details in follow-up prompts.
 
 ### ⌨️ Activity: Plan and implement backend tests
 
