@@ -1,5 +1,9 @@
 ## Step 4: Plan your implementation with the Planning Agent 🧭
 
+In the last step, Agent Mode helped us move fast and ship new functionality. 🚀
+
+Now let's slow down for one round and work like architects: define a strong testing approach first, then hand it off for implementation. This gives us better clarity, fewer surprises, and cleaner results. 🧪
+
 ### 📖 Theory: What is Copilot Plan Mode?
 
 Copilot [Plan Mode](https://code.visualstudio.com/docs/copilot/chat/chat-planning) helps you design a solution before any code is changed.
@@ -25,7 +29,7 @@ Instead of jumping straight into edits, it researches your request, asks clarify
 Your backend still has zero test coverage. Use **Plan Mode** to create a plan, answer questions, and then launch implementation.
 
 1. Open the **Copilot Chat** panel and switch to **Plan** mode.
-   
+
    <img width="350" alt="image" src="../images/plan-mode-dropdown.png" />
 
 
